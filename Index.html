@@ -1,54 +1,16 @@
-// 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Python Online Quiz</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
 
-<div class="quiz-box">
-
-<h1>Python Online Quiz</h1>
-
-<form>
-
-<h3>1. Who developed Python?</h3>
-<label><input type="radio" name="q1"> A. James Gosling</label><br>
-<label><input type="radio" name="q1"> B. Guido van Rossum</label><br>
-<label><input type="radio" name="q1"> C. Dennis Ritchie</label><br>
-<label><input type="radio" name="q1"> D. Bjarne Stroustrup</label>
-
-<h3>2. Why do we learn Python?</h3>
-<label><input type="radio" name="q2"> A. Web Development</label><br>
-<label><input type="radio" name="q2"> B. AI & Machine Learning</label><br>
-<label><input type="radio" name="q2"> C. Automation</label><br>
-<label><input type="radio" name="q2"> D. All of the Above</label>
-
-<h3>3. Which is the correct Python output statement?</h3>
-<label><input type="radio" name="q3"> A. Print("")</label><br>
-<label><input type="radio" name="q3"> B. print()</label><br>
-<label><input type="radio" name="q3"> C. println()</label>
-
-<br><br>
-
-<button type="submit">Submit</button>
-
-</form>
-
-</div>
-
-</body>
-</html>
-//css
+<style>
 body{
     margin:0;
     font-family:Arial,sans-serif;
     background:#f0f4f8;
 }
-
 .quiz-box{
     width:90%;
     max-width:700px;
@@ -58,22 +20,18 @@ body{
     border-radius:10px;
     box-shadow:0 0 10px rgba(0,0,0,0.2);
 }
-
 h1{
     text-align:center;
     color:#0066cc;
 }
-
 h3{
     color:#333;
 }
-
 label{
     display:block;
     margin:8px 0;
     font-size:17px;
 }
-
 button{
     width:100%;
     padding:12px;
@@ -84,28 +42,74 @@ button{
     font-size:18px;
     cursor:pointer;
 }
-
 button:hover{
     background:#004c99;
 }
-//script 
-function checkQuiz() {
+#result{
+    text-align:center;
+    color:green;
+    font-size:22px;
+    margin-top:20px;
+}
+</style>
 
-let score = 0;
+</head>
+<body>
+
+<div class="quiz-box">
+
+<h1>Python Online Quiz</h1>
+
+<form>
+
+<h3>1. Who developed Python?</h3>
+<label><input type="radio" name="q1" value="a"> A. James Gosling</label>
+<label><input type="radio" name="q1" value="b"> B. Guido van Rossum</label>
+<label><input type="radio" name="q1" value="c"> C. Dennis Ritchie</label>
+<label><input type="radio" name="q1" value="d"> D. Bjarne Stroustrup</label>
+
+<h3>2. Why do we learn Python?</h3>
+<label><input type="radio" name="q2" value="a"> A. Web Development</label>
+<label><input type="radio" name="q2" value="b"> B. AI & Machine Learning</label>
+<label><input type="radio" name="q2" value="c"> C. Automation</label>
+<label><input type="radio" name="q2" value="d"> D. All of the Above</label>
+
+<h3>3. Which is the correct Python output statement?</h3>
+<label><input type="radio" name="q3" value="a"> A. Print("")</label>
+<label><input type="radio" name="q3" value="b"> B. print()</label>
+<label><input type="radio" name="q3" value="c"> C. println()</label>
+
+<br>
+
+<button type="button" onclick="checkQuiz()">Submit</button>
+
+<h2 id="result"></h2>
+
+</form>
+
+</div>
+
+<script>
+function checkQuiz(){
+
+let score=0;
 
 if(document.querySelector('input[name="q1"]:checked')?.value=="b"){
-    score++;
+score++;
 }
 
 if(document.querySelector('input[name="q2"]:checked')?.value=="d"){
-    score++;
+score++;
 }
 
 if(document.querySelector('input[name="q3"]:checked')?.value=="b"){
-    score++;
+score++;
 }
 
-document.getElementById("result").innerHTML =
-"Your Score: " + score + " / 3";
+document.getElementById("result").innerHTML="Your Score : "+score+" / 3";
 
 }
+</script>
+
+</body>
+</html>

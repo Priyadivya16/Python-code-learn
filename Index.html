@@ -1,54 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Python Online Quiz</title>
+<title>Python List Quiz</title>
 
 <style>
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f0f4f8;
+    font-family:Arial;
+    background:#f2f2f2;
 }
-.quiz-box{
-    width:90%;
-    max-width:700px;
-    margin:40px auto;
+.quiz{
+    width:600px;
+    margin:30px auto;
     background:#fff;
-    padding:25px;
+    padding:20px;
     border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.2);
+    box-shadow:0 0 10px gray;
 }
 h1{
     text-align:center;
-    color:#0066cc;
-}
-h3{
-    color:#333;
-}
-label{
-    display:block;
-    margin:8px 0;
-    font-size:17px;
+    color:blue;
 }
 button{
     width:100%;
-    padding:12px;
-    background:#0066cc;
+    padding:10px;
+    background:green;
     color:white;
     border:none;
-    border-radius:6px;
     font-size:18px;
+    border-radius:5px;
     cursor:pointer;
-}
-button:hover{
-    background:#004c99;
 }
 #result{
     text-align:center;
-    color:green;
     font-size:22px;
+    color:red;
     margin-top:20px;
 }
 </style>
@@ -56,59 +41,68 @@ button:hover{
 </head>
 <body>
 
-<div class="quiz-box">
+<div class="quiz">
 
-<h1>Python Online Quiz</h1>
+<h1>Python List Quiz</h1>
 
-<form>
+<p><b>1. What is a Python List?</b></p>
+<input type="radio" name="q1" value="A"> A) A collection of items<br>
+<input type="radio" name="q1" value="B"> B) A loop<br>
+<input type="radio" name="q1" value="C"> C) A function<br>
+<input type="radio" name="q1" value="D"> D) An operator<br><br>
 
-<h3>1. Who developed Python?</h3>
-<label><input type="radio" name="q1" value="a"> A. James Gosling</label>
-<label><input type="radio" name="q1" value="b"> B. Guido van Rossum</label>
-<label><input type="radio" name="q1" value="c"> C. Dennis Ritchie</label>
-<label><input type="radio" name="q1" value="d"> D. Bjarne Stroustrup</label>
+<p><b>2. Which symbol is used to create a List?</b></p>
+<input type="radio" name="q2" value="A"> A) ()<br>
+<input type="radio" name="q2" value="B"> B) []<br>
+<input type="radio" name="q2" value="C"> C) {}<br>
+<input type="radio" name="q2" value="D"> D) &lt;&gt;<br><br>
 
-<h3>2. Why do we learn Python?</h3>
-<label><input type="radio" name="q2" value="a"> A. Web Development</label>
-<label><input type="radio" name="q2" value="b"> B. AI & Machine Learning</label>
-<label><input type="radio" name="q2" value="c"> C. Automation</label>
-<label><input type="radio" name="q2" value="d"> D. All of the Above</label>
+<p><b>3. What does append() do?</b></p>
+<input type="radio" name="q3" value="A"> A) Adds an item<br>
+<input type="radio" name="q3" value="B"> B) Removes an item<br>
+<input type="radio" name="q3" value="C"> C) Sorts the list<br>
+<input type="radio" name="q3" value="D"> D) Reverses the list<br><br>
 
-<h3>3. Which is the correct Python output statement?</h3>
-<label><input type="radio" name="q3" value="a"> A. Print("")</label>
-<label><input type="radio" name="q3" value="b"> B. print()</label>
-<label><input type="radio" name="q3" value="c"> C. println()</label>
+<p><b>4. What does len() return?</b></p>
+<input type="radio" name="q4" value="A"> A) Number of items<br>
+<input type="radio" name="q4" value="B"> B) First item<br>
+<input type="radio" name="q4" value="C"> C) Last item<br>
+<input type="radio" name="q4" value="D"> D) Largest item<br><br>
 
-<br>
+<p><b>5. What is the output?</b></p>
 
-<button type="button" onclick="checkQuiz()">Submit</button>
+<pre>
+fruits=["Apple","Banana"]
+print(fruits[0])
+</pre>
+
+<input type="radio" name="q5" value="A"> A) Apple<br>
+<input type="radio" name="q5" value="B"> B) Banana<br>
+<input type="radio" name="q5" value="C"> C) Orange<br>
+<input type="radio" name="q5" value="D"> D) Error<br><br>
+
+<button onclick="check()">Submit</button>
 
 <h2 id="result"></h2>
-
-</form>
 
 </div>
 
 <script>
-function checkQuiz(){
+
+function check(){
 
 let score=0;
 
-if(document.querySelector('input[name="q1"]:checked')?.value=="b"){
-score++;
-}
+if(document.querySelector('input[name="q1"]:checked')?.value=="A") score++;
+if(document.querySelector('input[name="q2"]:checked')?.value=="B") score++;
+if(document.querySelector('input[name="q3"]:checked')?.value=="A") score++;
+if(document.querySelector('input[name="q4"]:checked')?.value=="A") score++;
+if(document.querySelector('input[name="q5"]:checked')?.value=="A") score++;
 
-if(document.querySelector('input[name="q2"]:checked')?.value=="d"){
-score++;
-}
-
-if(document.querySelector('input[name="q3"]:checked')?.value=="a"){
-score++;
-}
-
-document.getElementById("result").innerHTML="Your Score : "+score+" / 3";
+document.getElementById("result").innerHTML="Your Score : "+score+"/5";
 
 }
+
 </script>
 
 </body>
